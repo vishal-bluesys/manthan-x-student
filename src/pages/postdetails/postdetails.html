@@ -1,0 +1,51 @@
+<!--
+  Generated template for the PostdetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="header">
+    <ion-title>{{postdata.first_name}} {{postdata.last_name}}</ion-title>
+      <ion-buttons end *ngIf="candelete">
+      <button ion-button icon-only color="royal" (click)="editPost();">
+        <ion-icon name="create"></ion-icon>
+      </button>
+      <button ion-button icon-only color="royal" (click)="deletePost();">
+        <ion-icon name="trash"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="post-image">
+  <img [src]="postdata.images" *ngIf="postdata.hasimage">
+  </div>
+   <div class="description">
+   	  
+      <span *ngIf="!editposttext" > <pre class="post-description">{{postdata.description}}</pre></span>
+
+       <div *ngIf="editposttext">    
+        <textarea placeholder="Write your post here"  [(ngModel)]="edit_description"  rows ='5' class="comment-text-area">
+  	
+         
+      </textarea>
+       <button ion-button color="dark"  (click)="updatePost()"> Update Post </button>
+      </div>
+   </div>
+  <div class="comment-text-box"><textarea [(ngModel)]="textcomment" rows ='3' class="comment-text-area"  placeholder=" Write a comment ">
+  	
+
+  </textarea>
+  <button ion-button color="dark"  (click)="postComment()"> Send now </button>
+  </div>
+   <ion-item *ngFor='let item of postComments'>
+      <span class="cusername">{{item.c_user_name}}</span><br/>
+      <span class="comment"> {{item.comment}} </span>
+     <br/><span class="c_date">{{item.created_at | date}}</span>
+    </ion-item>
+</ion-content>

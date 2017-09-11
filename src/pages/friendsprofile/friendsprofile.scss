@@ -1,0 +1,101 @@
+page-friendsprofile {
+
+ .profile-view {
+  background-color: #FFFFFF !important;
+  }
+  .profile-view .profile-container {
+    margin: 0px auto;
+    margin-top: 6vh;
+     text-align: center;
+        z-index: 1;
+	}
+
+  .profile-view .user-image-container {
+    width: 46vw; 
+    }
+
+    .profile-view .user-image-container .user-image {
+      border-top: 1px solid #444444;
+      padding: 8px;
+      background-color: #FFFFFF;
+      width: 100%;
+      border-radius: 50%; 
+      }
+
+  .profile-view .user-name {
+     font-size: 16px;; 
+    }
+   .profile-view .user-designation{
+
+     font-size: 12px; 
+     }
+  .profile-view .user-twitter {
+    margin-top: 5px;
+     }
+
+  .profile-view .top-content {
+    border-bottom: 1px solid #444444;
+    position: relative;
+    height: 20vh;
+    margin-bottom: 25vh; 
+	/*background-color: black;*/
+	}
+  .profile-view .user-background-image-outer {
+    height: 20vh;
+    position: absolute;
+    width: 100%;
+    left: 0;
+     top: 0; 
+   background-size:cover;
+    -webkit-filter: blur(4px);
+    -moz-filter: blur(4px);
+    -ms-filter: blur(4px);
+    -o-filter: blur(4px);
+    filter: blur(4px);
+ 
+    }
+  .profile-view .bottom-content {
+    padding: 0px;
+    /*background-color: #FFFFFF;*/
+    min-height: 55vh;
+    position: relative;
+     }
+    .profile-view .bottom-content .user-bio {
+      text-align: center;
+      margin: 6px 30px;
+      padding: 6px 0px;
+       }
+	 
+	 
+	 
+.profile-view .item {
+	  background-color: rgba(255, 255, 255, 0.06);
+		     overflow: hidden; 
+         text-overflow: ellipsis; 
+      white-space: wrap; 
+		     
+}	 
+
+  .profile-pic-image{
+  
+   border:3px solid black;
+   width:150px;
+   height:150px;
+   border-radius: 50%;
+   float:left;
+
+  
+
+ }
+
+ .button-md-dark, .button-ios-dark {
+            border-radius: 45%;
+            position: absolute;
+            top: 145px;
+            left: 178px;
+            z-index: 1;;
+      }
+
+
+
+}

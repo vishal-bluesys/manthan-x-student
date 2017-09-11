@@ -1,0 +1,148 @@
+page-login {
+     .scroll-content{
+
+         background : url('../assets/img/login_bg.png') no-repeat center;
+         background-size: 100% 100%;
+		}
+        .login{
+    
+         width:90%;
+         margin:auto;
+        /* background: gray;*/
+
+        }
+
+		.login h4{
+			    color: white;
+			text-align:center;
+		}
+		.login-form{
+			/*position : absolute;
+			top: 150px;
+		    left: 10%;*/
+		    height: 400px;
+		    width: 80%;
+		    margin:auto;
+		   /* border: 1px solid gray;*/
+		       background-color: rgba(230, 229, 229, 0.5);
+		       padding:10px;
+			
+		}
+		 
+
+		.list{
+		   position : relative;
+		   top:0px;   
+			
+		}
+	   .logo{
+	            position: relative;
+   			    top: 80px;
+			    height: 160px;
+			    width: 160px;
+			    z-index: 1;
+			    border: 8px solid black;
+			    border-radius: 50%;
+			    margin: auto;
+			
+		}
+		.namedLogo {
+
+			    /*position: relative;
+			    top: 84px;
+			    left: 25%;*/
+			    width: 128px;
+			    background-color: rgba(244, 244, 244, 0) !important;
+                margin:auto;  
+			    			}
+	    .role{
+			position : relative;
+		    top:100px;
+			left:35%;  
+			width:100px;
+			  background-color: rgba(244, 244, 244, 0) !important;
+		}
+		
+		.item {
+			    background-color: rgba(244, 244, 244, 0) !important;
+			    color: black;
+			    border: none;
+			    margin: 10px auto;
+			}
+
+		h2,h6{
+		    color:black;
+		}
+
+		 .login-btn{
+			color:white;
+			background-color:black;
+			border:none;
+		}
+		.item-input ion-input {
+				    position: static;
+				    border: 1px solid white;
+				    border-radius: 10px;
+						}
+		.list-md .item-block .item-inner {
+    			border-bottom: none;
+		}
+
+		
+
+      
+        .error{
+           color:red;
+
+        }
+
+		ion-input {
+		 		    border: 1px solid white;
+		 		    margin-bottom : 5px;
+		 		    border-radius:10px;
+		}
+ 
+     ion-toast.bottomToast.toast-md {
+			    .toast-wrapper.toast-bottom  {
+			        position: absolute;
+			        right: 0;
+			        left: 0;
+			        z-index: 10;
+			        display: block;
+			        margin: auto;
+			        width: 40%;
+			        max-width: 700px;
+			        border-radius: 35px;
+			        background: gray;
+			        /* color: black; */
+			    }
+
+			    .toast-md .toast-message {
+			    padding: 19px 16px 17px;
+			    font-size: 1.5rem;
+			    /* color: #fff; */
+				    text-align: center;
+					}
+
+			div#toast-hdr-0 {
+			    text-align: center;
+					}
+		}
+
+   
+       ion-toast.success .toast-wrapper {
+				background: green;
+			}
+ 
+
+      .login-form form{
+        position:relative;
+        top:80px;
+
+      }
+      .externlink{
+      position : relative;
+          top: 80px;
+      }
+     }
+ 

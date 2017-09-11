@@ -1,0 +1,102 @@
+<!--
+  Generated template for the AboutusPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color='header'>
+      <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>About Us</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+  <div>
+  <ion-segment [(ngModel)]="about" color="dark">
+    <ion-segment-button value="Establish">
+      Establish
+    </ion-segment-button>
+    <ion-segment-button value="Founder">
+      Founder
+    </ion-segment-button>
+    <ion-segment-button value="Why">
+      Why Us
+    </ion-segment-button>
+    <ion-segment-button value="Awards">
+      Awards
+    </ion-segment-button>
+  </ion-segment>
+ </div>
+  <div [(ngSwitch)]='about'>
+  	<ion-list *ngSwitchCase="'Establish'">
+  		       <div class="content">
+    			 <p>
+				 Manthan is established in 2003, to fill the gap in art education.
+				</p>
+				<p>
+					It is the only college that is open to art and non-art background and trains to become hot shot Graphic Designer or Creative Director.
+				</p>
+				<p>
+					It’s a unique advertising school like the ones in UK, USA, France teaching ESSENTIAL CREATIVE THINKING, making the student JOB READY and offers him the RIGHT PLACEMENT to make a shining career in the ad world.
+				</p>
+				<p>
+					The result is Manthan students are working as Visualizers, Art Directors, Photographers and Copywriters in top ad agencies like O&M, Saatchi & Saatchi, McCann Erickson, Mudra, Lowe, etc., in India and abroad.
+									</p>
+				
+			</div>
+
+
+  	</ion-list>
+  	<ion-list *ngSwitchCase="'Founder'">
+  	      
+    
+  		    <div class="content">
+  		         <div class="profilepic">      <img [src]="founderImage"/></div>
+				  <p>Hi,
+				  </p><p>
+				Here is a secret to make a great career in advertising- you should be imaginative, a dreamer, a bit crazy and most important – have a burning desire! Ad world always needs creative campaigns overnight. The rewards are great for the creative people in the ad industry, the growth is fast. So CREATIVE SKILL is needed. At Manthan we understand the artist’s sensitive mind. We teach students to convert life experiences into creative ideas that sell the brand- nurture the habit of out-of- the-box approach, experimentation and presentation skills. Finally we develop his personality, portfolio and place him in the right ad agency in the world- then for us his education is complete. Our ex student achievers and awards is the satisfying proof of this.
+               </p><p>
+				Meet me; open your mind and dreams to me! I am here to make you madder…creative and successful!
+               </p>
+				Prof Shashikant Gawali<br/>
+				G.D. Art, Dip Ed.<br/>
+				Art educationist- mentorv<br/>
+				
+            </div>
+
+
+  	</ion-list>
+  	<ion-list *ngSwitchCase="'Why'">
+  		   <div class="content">
+            <p>Manthan is open to art and non art background students, anyone who is the dreamer, mad and wanting to work hard to go creative and wants to make a career in advertising- this is the only qualification.
+            </p><p>
+            Simply because Manthan knows only the dreamers and crazy people like Bill gates created Microsoft co, Spielberg made Jurassic Park film , Picasso painted cubism, a sandwich maker girl Kate Winslet became the lead actress of ‘Titanic’ and David Ogilvy created a global ad agency.
+           </p>
+		    <p>Creativity is the power to be on the top- in every domain from finance to fashion, from cinema to advertising.
+			</p>
+			<p>
+			Manthan has the research based syllabus to bring out the creative fire in students. It tells them the ways of seeing the world with a creative eye. It trains them to turn experiences of life, into creative ideas that make great advertising. The student grows the process further.
+			</p>
+		   </div>
+
+  	</ion-list>
+  	<ion-list *ngSwitchCase="'Awards'">
+  		
+  		<div class="content">
+  		<div class="profilepic">      <img [src]="awardsImage"/></div>
+		    <p>
+            Every year the students are encouraged  to participate in various ad competitions. They have shined every year with their excellent work. So far Manthan has won a total of 22 awards in State art exhibition. Awards give them a great motivation and weights to their portfolio.They also realize where do they stand and further where to go.
+            </p>
+		   </div>
+  	</ion-list>
+
+
+  </div>
+
+</ion-content>

@@ -1,18 +1,75 @@
-<ion-header>
-  <ion-navbar>
+<ion-header >
+  <ion-navbar color="header">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Home</ion-title>
   </ion-navbar>
+
+  <ion-toolbar color="header">
+   <ion-grid >
+     <ion-row>
+       <ion-col col-9 col-sm-6 col-md-4 col-lg-3 col-xl-2 >WELCOME TO MANTHAN </ion-col>
+       <ion-col col-3 col-sm-3 col-md-2 col-lg-1 col-xl-1  (click)="addnew()">
+          Add Post 
+      </ion-col>
+     </ion-row>
+
+   </ion-grid>
+
+  
+  </ion-toolbar>
+
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+<ion-list>
+ 
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <ion-item *ngIf="!items.length" class="not-available"> Not Available </ion-item>
+ <ion-card *ngFor="let item of items" (click)='showPost(item)'>
+   
+  <ion-item>
+    <ion-avatar item-start>
+      <img [src]="item.user_profile_image">
+    </ion-avatar>
+    <h2>{{item.user_name}}</h2>
+    <p>{{item.created_at}}</p>
+  </ion-item>
+
+  <img [src]="item.images" *ngIf="item.hasimage" >
+
+  <ion-card-content>
+    <pre class="post-description">{{item.description}}</pre>
+  </ion-card-content>
+
+  <ion-row>
+   <!-- <ion-col>
+      <button ion-button icon-left clear small>
+        <ion-icon name="thumbs-up"></ion-icon>
+        <div>12 Likes</div>
+      </button>
+    </ion-col>-->
+    <ion-col>
+      <button ion-button icon-left clear small>
+        <ion-icon name="text"></ion-icon>
+        <div>{{item.totalcomment}}</div>
+      </button>
+    </ion-col>
+   <!-- <ion-col center text-center>
+      <ion-note>
+        11h ago
+      </ion-note>
+    </ion-col>-->
+  </ion-row>
+
+</ion-card>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+   <ion-infinite-scroll-content></ion-infinite-scroll-content>
+ </ion-infinite-scroll>
+ </ion-list>
 </ion-content>

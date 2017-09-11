@@ -1,0 +1,21 @@
+page-registration {
+    .scroll-content{
+
+         background : url('../assets/img/login_bg.png') no-repeat center;
+         background-size: 100% 100%;
+		}
+  
+ .item-md , .item-ios{
+
+     background: rgba(255, 255, 255, 0.26);
+   }
+
+   ion-label[stacked], ion-label[floating] {
+     color: white;
+  }
+
+ .error {
+    color: #FF0000;
+    padding-left: 10%;
+ }
+}

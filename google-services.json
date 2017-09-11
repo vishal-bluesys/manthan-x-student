@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "316150985506",
+    "firebase_url": "https://manthan-school.firebaseio.com",
+    "project_id": "manthan-school",
+    "storage_bucket": "manthan-school.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:316150985506:android:52e36bb90786de39",
+        "android_client_info": {
+          "package_name": "com.manthan.xstudent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "316150985506-v1ibk8s4fetbhg5rlh1ere8n36sqm9mv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXDdgUu8fjw08gjKVuqHZRiB1fZNyAbTc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

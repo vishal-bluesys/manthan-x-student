@@ -1,0 +1,26 @@
+page-jobdetails {
+.jobtitle{
+    
+    text-transform: uppercase;
+    font-weight: bold;
+    
+}
+.company{
+    text-transform: capitalize;
+    font-weight: 700;
+    color:grey;
+    
+}
+
+ pre {
+
+  overflow:hidden;
+  font-family:'robot';
+  white-space: pre-wrap;
+ }
+
+ ion-footer {
+    background: black;
+}
+
+}

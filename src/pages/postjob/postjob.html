@@ -1,0 +1,117 @@
+<!--
+  Generated template for the PostjobPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="header">
+    <ion-title>Post job</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+<ion-segment [(ngModel)]="tabs" color="dark">
+    <ion-segment-button value="primary">
+      primary details
+    </ion-segment-button>
+    <ion-segment-button value="secondary" (click)="checkPrimary()">
+      secondary details
+    </ion-segment-button>
+   
+  </ion-segment>
+   <div [(ngSwitch)]='tabs'>
+   <ion-list  *ngSwitchCase="'primary'">
+    <form name="primaryInfo" class="primaryInfo-form" [formGroup]="primaryInfo" (ngSubmit)="saveAndNext(primaryInfo.value)">
+   <ion-item>
+   	
+   	<ion-label stacked> Job Title </ion-label>
+      <ion-input type="text"  placeholder="Enter job title " [formControl]="primaryInfo.controls['jobtitle']"></ion-input>
+   </ion-item>
+    <span *ngIf="primaryInfo.controls['jobtitle'].hasError('required') && primaryInfo.controls['jobtitle'].touched" class="error">Job title is required .</span>
+
+     <ion-item>
+      <ion-label stacked> Designation </ion-label>
+      <ion-input type="text"  placeholder="Enter Designation " [formControl]="primaryInfo.controls['designation']"></ion-input>
+     </ion-item>
+      <span *ngIf="primaryInfo.controls['designation'].hasError('required') && primaryInfo.controls['designation'].touched" class="error">Designation is required .</span>
+
+      <ion-item>
+      <ion-label stacked> Company Name </ion-label>
+      <ion-input type="text"  placeholder="Enter Company Name " [formControl]="primaryInfo.controls['company']"></ion-input>
+     </ion-item>
+      <span *ngIf="primaryInfo.controls['company'].hasError('required') && primaryInfo.controls['company'].touched" class="error">Company Name is required .</span>
+
+      <ion-item>
+      <ion-label stacked> City </ion-label>
+      <ion-input type="text"  placeholder="Enter City " [formControl]="primaryInfo.controls['city']"></ion-input>
+     </ion-item>
+      <span *ngIf="primaryInfo.controls['city'].hasError('required') && primaryInfo.controls['city'].touched" class="error">City is required .</span>
+    
+      <ion-item>
+      <ion-label stacked> Website </ion-label>
+      <ion-input type="text"  placeholder="Enter website " [formControl]="primaryInfo.controls['website']"></ion-input>
+     </ion-item>
+      <span *ngIf="primaryInfo.controls['website'].hasError('required') && primaryInfo.controls['website'].touched" class="error"> Website is required .</span>
+
+      <ion-item>
+      <ion-label stacked> Email</ion-label>
+      <ion-input type="text"  placeholder="Enter Email id " [formControl]="primaryInfo.controls['email']"></ion-input>
+     </ion-item>
+      <span *ngIf="primaryInfo.controls['email'].hasError('required') && primaryInfo.controls['email'].touched" class="error"> Email id is required .</span>
+   
+     <ion-item>
+      <ion-label stacked> Contact Number </ion-label>
+      <ion-input type="text"  placeholder="Enter Contact Number" [formControl]="primaryInfo.controls['phone']"></ion-input>
+     </ion-item>
+      <span *ngIf="primaryInfo.controls['phone'].hasError('required') && primaryInfo.controls['phone'].touched" class="error">Contact Numeber is required .</span>        
+    
+        <div padding class="item-md"> 	 
+         <button ion-button block color="dark" type="submit"  [disabled]="!primaryInfo.valid"> Save and Next </button>
+		 </div>
+    </form>
+   </ion-list>
+   
+   <ion-list  *ngSwitchCase="'secondary'">
+     <form name="secondaryInfo" id="secondaryInfo" [formGroup]="secondaryInfo" (ngSubmit)="postJob(secondaryInfo.value)">
+
+     <ion-item>
+      <ion-label stacked> Experince req </ion-label>
+      <ion-input type="text"  placeholder="eg 4-5 yrs " [formControl]="secondaryInfo.controls['experince']"></ion-input>
+     </ion-item>
+        <span *ngIf="secondaryInfo.controls['experince'].hasError('required') && secondaryInfo.controls['experince'].touched" class="error">Experince Required .</span>      
+   	 <ion-item>
+   	  <ion-label stacked> Skills</ion-label>
+   	 </ion-item>
+      
+   	  <textarea rows= "5" [formControl]="secondaryInfo.controls['skills']"  placeholder=" Enter Skills required " ion-item>
+      	
+
+      </textarea>
+      <span *ngIf="secondaryInfo.controls['skills'].hasError('required') && secondaryInfo.controls['skills'].touched" class="error">Skills Required .</span>  
+      <ion-item>
+   	  <ion-label stacked> Job Description</ion-label>
+     
+   	 </ion-item>
+
+   	  <textarea   rows= "5" [formControl]="secondaryInfo.controls['jobd']" placeholder=" Enter Job Description "   ion-item>
+      	
+
+      </textarea>
+           <span *ngIf="secondaryInfo.controls['jobd'].hasError('required') && secondaryInfo.controls['jobd'].touched" class="error">Job Description Required .</span>  
+          <div padding class="item-md"> 	 
+           <button ion-button block color="dark" type="submit"  [disabled]="!secondaryInfo.valid"> Post Job</button>
+		 </div>
+   
+  </form>
+
+   </ion-list>
+
+
+  </div>
+
+
+</ion-content>

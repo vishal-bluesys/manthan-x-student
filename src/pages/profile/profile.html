@@ -1,0 +1,45 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="header">
+    <ion-title>Profile</ion-title>
+    
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="profile-view">
+   <div class= "top-content row">
+            <div class= "profile-container">
+                <div class= "user-image-container">
+                    <img id = "profileImage" class="profile-pic-image" [src]= "profile_pic"   > 
+			    </div>
+                <div class= "user-name" >{{username}}</div>
+                <div class= "user-designation" (click)="showPrompt('Designation','designation','text')">{{designation}}</div>
+			</div>
+				<div class= "user-background-image-outer">
+					<img [src]= "profile_pic" style="
+																			width: 100%;
+																			z-index: -3px;
+																			height: 144px;
+																		">
+				</div>
+				<button ion-button icon-only color="dark" (click)='presentActionSheet()' >  <ion-icon ios="ios-camera" md="md-camera"></ion-icon></button>
+			</div>
+
+
+			<ion-list>
+		     <ion-item (click)="showPrompt('Email id','email','email')"> Email : {{email}} </ion-item>
+		     <ion-item (click)="showPrompt('Mobile Number','mobile','number')"> Mobile : {{mobile}} </ion-item>		
+		     <ion-item (click)="showPrompt('Company Name','company','text')"> company : {{company}} </ion-item>
+		     <ion-item> Course : {{course}} </ion-item>		
+    			</ion-list>
+			
+
+</ion-content>

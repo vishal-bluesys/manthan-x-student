@@ -1,0 +1,63 @@
+<!--
+  Generated template for the ContactusPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color='header'>
+        <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Contact Us</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+<ion-segment [(ngModel)]="contact" color="dark">
+    <ion-segment-button value="Mumbai">
+      Mumbai
+    </ion-segment-button>
+    <ion-segment-button value="Pune">
+      Pune
+    </ion-segment-button>
+   
+  </ion-segment>
+ <div [(ngSwitch)]='contact'>
+ <ion-list *ngSwitchCase="'Mumbai'">
+		<agm-map [latitude]="Mlat" [longitude]="Mlng">
+		  <agm-marker [latitude]="Mlat" [longitude]="Mlng">Manthan Arts School, Mumbai</agm-marker>
+		</agm-map>
+		<ion-item>
+		<div class="row"><div class="col col-100">
+		    Manthan,<br/>
+			The School of Creative Advertising and Art<br>
+		    3, Shivsmruti Building, N. M. Joshi Marg,<br>
+		    Currey Road (W) Mumbai – 400013.<br></div></div>
+		    <div class="row">
+		      <button ion-button icon-left (click)="callNow(9167013959)"> <ion-icon name="call" item-start ></ion-icon> 9167013959</button> <button ion-button icon-left (click)="callNow(9819954989)"><ion-icon name="call" item-start></ion-icon> 9819954989 </button> </div>
+		</ion-item>
+</ion-list>
+
+<ion-list *ngSwitchCase="'Pune'">
+
+		<agm-map [latitude]="Plat" [longitude]="Plng">
+		  <agm-marker [latitude]="Plat" [longitude]="Plng">Manthan Arts School, Pune</agm-marker>
+		</agm-map>
+	     <ion-item>
+	          <div class="row"><div class="col col-100">
+	    Manthan, <br/>
+		The School of Creative Advertising and Art<br>
+	    Shop No. 7, Mangalmurti Complex,<br>
+	    Behind Hirabaug Ganpati,<br>
+	    Tilak Road,Pune 411030<br></div></div>
+	    <div class="row">
+		      <button ion-button icon-left (click)="callNow(02065203432)"> <ion-icon name="call" item-start></ion-icon> 020-65203432</button> <button ion-button icon-left (click)="callNow(08484831738)"><ion-icon name="call" item-start></ion-icon> 08484831738 </button>
+		  </div>      
+	    </ion-item>
+</ion-list>
+</div>
+</ion-content>

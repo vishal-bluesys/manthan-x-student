@@ -1,0 +1,24 @@
+page-welcome {
+   
+       .scroll-content{
+
+         background : url('../assets/img/login_bg.png') no-repeat center;
+         background-size: 100% 100%;
+		}
+
+		.container{
+         
+          position:relative;
+          top: 100px;
+
+
+		}
+      
+       .namedLogo {
+			    margin: auto;
+			    width: 100px;
+			    color:white;
+			    background-color: rgba(244, 244, 244, 0) !important;
+			}
+
+}

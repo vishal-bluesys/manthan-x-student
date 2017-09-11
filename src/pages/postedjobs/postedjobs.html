@@ -1,0 +1,57 @@
+<ion-header >
+  <ion-navbar color="header" *ngIf="hideNavbar" >
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My Posted Jobs</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="showSearch()">
+        <ion-icon name="search" ></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+   <ion-toolbar color="header" *ngIf="showSearchTool">
+    <ion-searchbar #searchbar [animated]="true" [showCancelButton]="shouldShowCancel" (ionCancel)="onCancel($event)" (ionInput)="onInput($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+    <ion-item *ngIf="!items.length" class="not-available"> Not Available </ion-item>
+    <ion-item *ngFor="let item of items let i= index"  >
+      <div class="row jobtitle" ion-row>
+             <ion-col col-10 (click)="showConfirm($event,item)" style="white-space: pre-wrap;">  <ion-icon name="flame" ></ion-icon>{{item.jobtitle}}</ion-col> <ion-col col-2 (click)="showConfirm(item.id,i)">  <ion-icon name="trash" item-end></ion-icon></ion-col>
+             </div>
+         <div class="row company" (click)="showDetails($event,item)">
+             {{item.company}}
+          </div>
+        <div class="row" (click)="showDetails($event,item)">
+            <div class="col col-50">
+               <ion-icon name="briefcase" item-start></ion-icon>  {{item.experince}}<br/></div>
+             <div class="col col-50">   <ion-icon name="pin" item-start></ion-icon>{{item.city}}<br/>
+             </div>
+        </div>
+        <div class="row" (click)="showDetails($event,item)">
+           <div class="col col-100">
+              <i class="ion-email"><ion-icon name="mail" item-start></ion-icon> {{item.email}}</i><br/>
+           </div></div>
+            <div class="row">
+              <div class="col col-50"><ion-icon name="call" item-start></ion-icon>{{item.phone}}</div>   
+         </div>
+        <div class="row" (click)="showDetails($event,item)">
+           Skills : {{item.skills}}    
+         </div>
+    </ion-item>
+  </ion-list>
+   <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+   <ion-infinite-scroll-content></ion-infinite-scroll-content>
+ </ion-infinite-scroll>
+
+
+  <ion-fab right bottom>
+    <button ion-fab color="dark" (click)="postJob()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+</ion-content>

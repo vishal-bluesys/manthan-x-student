@@ -1,0 +1,32 @@
+
+
+<ion-content >
+  
+   
+	 
+	   <ion-list class="login">
+     <div class="logo"><img src="assets/img/logo.png" style="width:100%"> </div>
+     <div class="login-form">
+      <form name="login"  [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
+        <div class="namedLogo"> <img src="assets/img/namedLogo1.png" style="width:100%"></div>
+               <ion-input type="text" placeholder="Enter User name" [formControl]="loginForm.controls['email']"></ion-input>
+               <span *ngIf="loginForm.controls['email'].hasError('required') && loginForm.controls['email'].touched" class="error">You must add an email.</span>
+            <span *ngIf="loginForm.controls['email'].hasError('email') && loginForm.controls['email'].touched && !loginForm.controls['email'].hasError('required')" class="error">You must have Valid email.</span>
+               <ion-input type="password" placeholder="Enter password"  [formControl]="loginForm.controls['password']"></ion-input>
+
+               <span *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched" class="error">You must add a password.</span> 
+                             
+       
+          <button type="submit" color="dark" ion-button block  [disabled]="!loginForm.valid">Login</button>
+        </form>
+        <div class="externlink">
+           <button ion-button block  color="dark" (click)="registration()"> Registration </button>
+          <br/>
+          <button ion-button clear color="dark" (click)="forgotPassword()"> Forgot password ???</button>
+        </div>  
+     </div>
+	 </ion-list>
+
+  
+   
+</ion-content>

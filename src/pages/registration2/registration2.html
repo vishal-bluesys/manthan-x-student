@@ -1,0 +1,45 @@
+<!--
+  Generated template for the Registration2Page page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="dark">
+    <ion-title>Registration</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div class="container"> 
+      
+      <div class="profileImage">
+          <img [src]="imagefile"  class="profilepic" >
+
+          <button ion-button icon-only color="dark" (click)='presentActionSheet()' >  <ion-icon ios="ios-camera" md="md-camera"></ion-icon></button>
+      </div>
+       <form name="registration" class="registration-form" [formGroup]="registartionForm" (ngSubmit)="register(registartionForm.value)">
+     <ion-list>
+         <ion-item>
+		    <ion-label stacked>Email </ion-label>
+		    <ion-input type="email"  placeholder="Enter Email Id" [formControl]="registartionForm.controls['email']"></ion-input>
+		  </ion-item>
+     <span *ngIf="registartionForm.controls['email'].hasError('required') && registartionForm.controls['email'].touched" class="error">You must add email.</span>
+      <span *ngIf="registartionForm.controls['email'].hasError('email') && registartionForm.controls['email'].touched" class="error">You must valid email.</span>
+		  <ion-item>
+		    <ion-label stacked>Password</ion-label>
+		    <ion-input type="password"  placeholder="Enter Password" [formControl]="registartionForm.controls['password']"></ion-input>
+		  </ion-item>
+        <span *ngIf="registartionForm.controls['password'].hasError('required') && registartionForm.controls['password'].touched" class="error">You must add password.</span>
+
+		  <div padding class="item-md"> 	 
+           <button ion-button block color="primary" type="submit" [disabled]="!registartionForm.valid"> Register </button>
+		 </div>
+
+    </ion-list>
+    </form>
+  </div>
+</ion-content>

@@ -3,6 +3,8 @@ import { NavController, NavParams,ToastController } from 'ionic-angular';
 import { RestProvider } from '../../providers/rest/rest';
 import { Storage } from '@ionic/storage';
 import { HomePage } from '../home/home';
+import  moment  from 'moment';
+
 /**
  * Generated class for the PostdetailsPage page.
  *
@@ -61,14 +63,14 @@ export class PostdetailsPage {
           comment : data[i]['comment'],
           c_user_name : data[i]['c_user_name'],
           c_user_id : data[i]['c_user_id'],
-           created_at : data[i]['created_at'],
+           created_at : moment(data[i]['created_at']).calendar(),
            flag : data[i]['flag']});
       }
      
 
 
    }, error => {
-      console.log(error);
+     // console.log(error);
    }, () => {});
 
    
@@ -79,7 +81,18 @@ export class PostdetailsPage {
 
   postComment(){
 
-  console.log(this.textcomment);
+  //console.log(this.textcomment);
+  if(this.textcomment==null || this.textcomment==""){
+    
+   this.toastCtrl.create({
+            message: "Comment should not be blank",
+            duration: 3000,
+            position: 'bottom',
+            showCloseButton : true,
+            
+          }).present();
+
+  }
   let data = {'post_id':this.postdata.id , 'comment':this.textcomment , 'c_user_name': this.user_name ,'c_user_id':this.userid};
   this.rest.addComment(data).subscribe(data=>{
  
@@ -98,7 +111,7 @@ export class PostdetailsPage {
 
   },error=>{
   
-     console.log(error);
+    // console.log(error);
   },()=>{
 
 

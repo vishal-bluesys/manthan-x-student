@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams , LoadingController} from 'ionic-angular';
+import { END_POINTS } from '../../config'; 
 import { RestProvider } from '../../providers/rest/rest';
 import { Storage } from '@ionic/storage';
 import { FriendsprofilePage } from '../friendsprofile/friendsprofile';
@@ -19,15 +20,17 @@ export class FriendsPage {
    loader:any;
    friendsList: any;
    user_id: any;
+   profile_imageurl: string;
    //imagepath:any = "http://bluesys.in/dev/mschoolbackend/public/images"; 
   constructor(public navCtrl: NavController, public navParams: NavParams, private rest : RestProvider,public loadingCtrl: LoadingController,private storage: Storage) {
-
+      this.profile_imageurl = END_POINTS.imageUrl;
   }
 
   ionViewDidLoad() {
    this.storage.get('user_id').then((val) => {
       this.user_id =  val;
       this.getUsers(val);
+      console.log(this.profile_imageurl);
       });
      
     console.log('ionViewDidLoad FriendsPage');
@@ -44,12 +47,12 @@ export class FriendsPage {
 
    this.presentLoading();
    this.rest.getAllusers(id).subscribe(data => {
-    console.log(data);
+    //console.log(data);
     this.friendsList=data;
     this.friendsList.forEach(function(item,value){
    
-      console.log(item);
-      item.profile_image = (item.profileimage=="")? 'assets/img/default_user.png' : "http://bluesys.in/dev/mschoolbackend/public/images/"+item.profileimage;
+     // console.log(this.profile_imageurl);
+      item.profile_image = (item.profileimage=="")? 'assets/img/default_user.png' :  "http://www.manthanartschool.com/app-rest-apis/mschoolbackend/public/images/"+item.profileimage;
 
 
     })

@@ -37,7 +37,7 @@ export class CoursesPage {
   getCourses(){
    this.presentLoading();
    this.rest.getCourses().subscribe(data => {
-    console.log(data);
+    //console.log(data);
     this.courselist=data;
      },
     error => {

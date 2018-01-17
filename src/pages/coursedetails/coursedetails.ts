@@ -29,7 +29,7 @@ export class CoursedetailsPage {
     this.batches = this.navParams.get('batches');
     this.details = this.navParams.get('details');
 
-    console.log('ionViewDidLoad CoursedetailsPage');
+    //console.log('ionViewDidLoad CoursedetailsPage');
   }
 
 }

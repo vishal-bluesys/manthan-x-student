@@ -1,6 +1,6 @@
 page-friendsprofile {
 
- .profile-view {
+   .profile-view {
   background-color: #FFFFFF !important;
   }
   .profile-view .profile-container {
@@ -8,7 +8,7 @@ page-friendsprofile {
     margin-top: 6vh;
      text-align: center;
         z-index: 1;
-	}
+  }
 
   .profile-view .user-image-container {
     width: 46vw; 
@@ -23,11 +23,15 @@ page-friendsprofile {
       }
 
   .profile-view .user-name {
-     font-size: 16px;; 
+        font-size: 21px;
+       color: whitesmoke;
+       text-transform: capitalize;
     }
-   .profile-view .user-designation{
+     .profile-view .user-designation{
 
      font-size: 12px; 
+     text-transform: capitalize;
+
      }
   .profile-view .user-twitter {
     margin-top: 5px;
@@ -38,8 +42,8 @@ page-friendsprofile {
     position: relative;
     height: 20vh;
     margin-bottom: 25vh; 
-	/*background-color: black;*/
-	}
+  /*background-color: black;*/
+  }
   .profile-view .user-background-image-outer {
     height: 20vh;
     position: absolute;
@@ -65,16 +69,16 @@ page-friendsprofile {
       margin: 6px 30px;
       padding: 6px 0px;
        }
-	 
-	 
-	 
+   
+   
+   
 .profile-view .item {
-	  background-color: rgba(255, 255, 255, 0.06);
-		     overflow: hidden; 
+    background-color: rgba(255, 255, 255, 0.06);
+         overflow: hidden; 
          text-overflow: ellipsis; 
       white-space: wrap; 
-		     
-}	 
+         
+}  
 
   .profile-pic-image{
   
@@ -97,5 +101,114 @@ page-friendsprofile {
       }
 
 
+   .bg {
+
+     height: 40vh;
+     background-size:cover;
+    /*-webkit-filter: blur(4px);
+    -moz-filter: blur(4px);
+    -ms-filter: blur(4px);
+    -o-filter: blur(4px);
+    filter: blur(4px);
+  
+ 
+       /*height: 300px;
+       background-size: cover;
+       filter:blur(5px);
+       background-position: center center;
+       z-index: -3px;
+       */
+    }
+
+    .bg img{
+
+    width: 100%;
+    z-index: -1;
+    height: 40vh;
+
+    }
+
+  .main-cnt{
+
+    width: 100%;
+    height: 500px;
+
+    padding: 10px;
+
+    background-color: rgba(0,0,0,0.75);
+
+  }
+
+  .dp{
+      border-radius: 50%;
+      height: 150px;
+      width: 150px;
+      z-index:10;
+      margin-top: -70px;
+      position: relative;
+      left:50%;
+      margin-right: -50%;
+      transform: translate(-50%,-10%);
+      box-shadow: -6px 15px 81px 3px rgba(0,0,0,0.75);
+
+
+
+  }
+
+  ion-label{
+
+    color:whitesmoke;
+  }
+
+
+ion-label{
+
+    color:whitesmoke;
+  }
+
+  ion-list ion-item{
+
+
+    color:whitesmoke;
+  }
+
+  item-start{
+
+    color: white;
+    border: 1px solid white;
+    border-radius: 50px;
+  }
+
+ ion-icon{
+  
+  color:white;
+
+ }
+  ion-list ion-item {
+
+   
+    margin-bottom: 10px;
+  }
+
+  .list-ios > .item-block:first-child  , .list-md > .item-block:first-child{
+    /*border-top: 0.55px solid #c8c7cc;
+    border-bottom: 0.55px solid #c8c7cc;
+    border-left: 0.55px solid #c8c7cc;
+    border-right: 0.55px solid #c8c7cc;
+    border-radius: 50px;*/
+}
+
+
+
+
+.list-ios .item-block .item-inner ,.list-md .item-block .item-inner {
+  border-bottom: none;
+ 
+}
+
+.toolbar-md-header .toolbar-title-md, .toolbar-ios-header .toolbar-title-ios {
+    color: #fff;
+    text-transform: capitalize;
+}
 
 }

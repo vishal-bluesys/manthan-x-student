@@ -7,7 +7,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { RestProvider } from '../../providers/rest/rest';
 import { HomePage } from '../home/home';
-
+import { END_POINTS } from '../../config'; 
 /**
  * Generated class for the NewpostPage page.
  *
@@ -50,7 +50,7 @@ export class NewpostPage {
   }
  
   ionViewDidLoad() {
-    console.log('ionViewDidLoad NewpostPage');
+   // console.log('ionViewDidLoad NewpostPage');
   }
 
 
@@ -113,7 +113,7 @@ export class NewpostPage {
  fileTransfer: FileTransferObject = this.transfer.create();
 
   upload(filename:any,post_id:number) {
-    let url : string = "http://bluesys.in/dev/mschoolbackend/app/Http/Controllers/upload.php" ;
+    let url : string = END_POINTS.uploadUrl; //"http://bluesys.in/dev/mschoolbackend/app/Http/Controllers/upload.php" ;
 
   let options: FileUploadOptions = {
      fileKey: 'file',
@@ -200,11 +200,11 @@ export class NewpostPage {
 
     },error=>{ 
           this.loader.dismiss(); 
-      console.log(error) 
+     // console.log(error) 
     },
     ()=>{
 
-       console.log("request served")
+      // console.log("request served")
 
     });
   }

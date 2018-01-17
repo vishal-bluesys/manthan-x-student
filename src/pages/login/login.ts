@@ -44,15 +44,16 @@ export class LoginPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
      if( this.device.platform =="Android" || this.device.platform =="Ios" ){
-       this.fcm.subscribeToTopic('xstudent');
-    this.fcm.getToken().then(token=>{
-           // alert(token);
-         //  alert(JSON.stringify(token));
-             this.storage.set('dtoken', token);
+        this.fcm.getToken().then(token=>{
+          this.storage.set('dtoken', token);
           this.fcm_token = token;
+          console.log(token);
          
         });
         }
+    
+
+  
   }
 
   ionViewDidEnter(){
@@ -109,7 +110,7 @@ export class LoginPage {
 
    login(value: any){
     this.presentLoading();
-    value.fcmtoken = this.fcm_token; 
+    value.fcmtoken =  this.fcm_token; 
     //alert(this.fcm_token);
     this.rest.login(value).subscribe(data => {
       // Read the result field from the JSON response.

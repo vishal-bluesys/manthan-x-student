@@ -3,6 +3,7 @@ import { NavController, NavParams, LoadingController,ToastController } from 'ion
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RestProvider } from '../../providers/rest/rest';
 
+
 /**
  * Generated class for the PostjobPage page.
  *

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams ,AlertController,LoadingController,ToastController} from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { AppRate } from '@ionic-native/app-rate';
+
 import { RestProvider } from '../../providers/rest/rest';
 import { LoginPage} from '../login/login';
 /**
@@ -17,7 +19,7 @@ import { LoginPage} from '../login/login';
 export class ChangepasswordPage {
    userid:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,private rest : RestProvider,public loadingCtrl: LoadingController,private toastCtrl: ToastController,private storage: Storage) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,private rest : RestProvider,public loadingCtrl: LoadingController,private toastCtrl: ToastController,private storage: Storage,public appRate:AppRate) {
    this.storage.get('student').then((user) => {
      let user_data = JSON.parse(user);
      this.userid = user_data.id;
@@ -29,7 +31,7 @@ export class ChangepasswordPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ChangepasswordPage');
+   // console.log('ionViewDidLoad ChangepasswordPage');
   }
 
 
@@ -96,4 +98,45 @@ export class ChangepasswordPage {
    });
 
    }
+
+  rateAppNow(){
+       
+     this.appRate.preferences = {
+        openStoreInApp: false,
+        displayAppName: 'Manthan App ',
+        usesUntilPrompt: 2,
+        promptAgainForEachNewVersion: false,
+        storeAppURL: {
+          ios: '1216856883',
+          android: 'market://details?id=com.manthan.xstudent'
+        },
+        customLocale: {
+          title: 'Do you enjoy %@?',
+          message: 'If you enjoy using %@, would you mind taking a moment to rate it? Thanks so much!',
+          cancelButtonLabel: 'No, Thanks',
+          laterButtonLabel: 'Remind Me Later',
+          rateButtonLabel: 'Rate It Now'
+        },
+        callbacks: {
+          onRateDialogShow: function(callback){
+            console.log('rate dialog shown!');
+             this.storage.clear();
+  
+             this.nav.setRoot(LoginPage);
+          },
+          onButtonClicked: function(buttonIndex){
+            
+           
+          }
+        }
+      };
+ 
+      // Opens the rating immediately no matter what preferences you set
+      this.appRate.promptForRating(true);
+
+
+
+  }
+
+
 }

@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import { END_POINTS } from '../../config'; 
+
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 /*
@@ -12,8 +14,9 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class RestProvider {
 
-  base_url :string = "http://bluesys.in/dev/mschoolbackend/public/";
- 
+  //base_url :string = "http://bluesys.in/dev/mschoolbackend/public/";
+ // base_url :string = "http://localhost/mschoolbackend/public/";
+    base_url : string = END_POINTS.baseUrl;
   constructor(public http: Http) {
     
     
@@ -119,6 +122,33 @@ getMyJobs(pagination,userid){
 
   }
 
+  getNotificationCount(user_id){
+
+    var headers = new Headers();
+         headers.append('Content-Type','application/x-www-form-urlencoded');
+         headers.append('Content-Type','application/json');
+        
+        return this.http.get(this.base_url+ "blog/notification/count/"+user_id , {headers})
+                .map(res=>res.json())
+                .catch(this.handleError);
+
+
+  }
+
+  getNotifications(user_id){
+
+        var headers = new Headers();
+         headers.append('Content-Type','application/x-www-form-urlencoded');
+         headers.append('Content-Type','application/json');
+        
+        return this.http.get(this.base_url+ "blog/notification/"+user_id , {headers})
+                .map(res=>res.json())
+                .catch(this.handleError);
+
+
+
+  }
+
  getBlogPost(pagination){
 
 
@@ -127,6 +157,20 @@ getMyJobs(pagination,userid){
          headers.append('Content-Type','application/json');
         
         return this.http.get(this.base_url+ "blog/index" , {headers, params:pagination })
+                .map(res=>res.json())
+                .catch(this.handleError);
+
+ }
+
+
+  getTimelinePost(pagination,user_id){
+
+
+       var headers = new Headers();
+         headers.append('Content-Type','application/x-www-form-urlencoded');
+         headers.append('Content-Type','application/json');
+        
+        return this.http.get(this.base_url+ "blog/timeline" , {headers, params:{pagination:pagination,user_id:user_id}})
                 .map(res=>res.json())
                 .catch(this.handleError);
 
@@ -223,6 +267,60 @@ getMyJobs(pagination,userid){
 
  }
 
+
+   getPortfolio(id){
+
+        var headers = new Headers();
+         headers.append('Content-Type','application/x-www-form-urlencoded');
+         headers.append('Content-Type','application/json');
+
+         return this.http.get(this.base_url+"xstudent/getportfolio/"+id,{headers})
+                .map(res=>res.json())
+                .catch(this.handleError);
+
+
+ }
+
+ addPortfolio(data){
+
+        var headers = new Headers();
+         headers.append('Content-Type','application/x-www-form-urlencoded');
+         headers.append('Content-Type','application/json');
+
+         return this.http.post(this.base_url+"xstudent/addportfolio",data,{headers})
+                .map(res=>res.json())
+                .catch(this.handleError);
+
+
+ 
+}
+
+ updatePortfolio(data){
+
+        var headers = new Headers();
+         headers.append('Content-Type','application/x-www-form-urlencoded');
+         headers.append('Content-Type','application/json');
+
+         return this.http.post(this.base_url+"xstudent/updateportfolio",data,{headers})
+                .map(res=>res.json())
+                .catch(this.handleError);
+
+
+ }
+
+  deletePortfolio(id){
+
+        var headers = new Headers();
+         headers.append('Content-Type','application/x-www-form-urlencoded');
+         headers.append('Content-Type','application/json');
+
+         return this.http.get(this.base_url+"xstudent/deleteportfolio/"+id,{headers})
+                .map(res=>res.json())
+                .catch(this.handleError);
+
+
+ }
+
   updatePassword(data){
    
          var headers = new Headers();
@@ -250,6 +348,46 @@ getMyJobs(pagination,userid){
 
  }
 
+
+  clearNotification(data){
+
+     var headers = new Headers();
+         headers.append('Content-Type','application/x-www-form-urlencoded');
+         headers.append('Content-Type','application/json');
+
+     return this.http.get(this.base_url+ "blog/notification/clear/"+data, {headers})
+
+                .map(res=>res.json())
+                .catch(this.handleError);
+
+ }
+
+   readNotification(data){
+
+     var headers = new Headers();
+         headers.append('Content-Type','application/x-www-form-urlencoded');
+         headers.append('Content-Type','application/json');
+
+     return this.http.get(this.base_url+ "blog/notification/read/"+data, {headers})
+
+                .map(res=>res.json())
+                .catch(this.handleError);
+
+ }
+
+    getPost(data){
+
+     var headers = new Headers();
+         headers.append('Content-Type','application/x-www-form-urlencoded');
+         headers.append('Content-Type','application/json');
+
+     return this.http.get(this.base_url+ "blog/getpost/"+data, {headers})
+
+                .map(res=>res.json())
+                .catch(this.handleError);
+
+ }
+
  private handleError (error: Response | any) {
 	  let errMsg: string;
 	  if (error instanceof Response) {
@@ -259,7 +397,7 @@ getMyJobs(pagination,userid){
 	  } else {
 	    errMsg = error.message ? error.message : error.toString();
 	  }
-	  console.error(errMsg);
+	  //console.error(errMsg);
 	  return Observable.throw(errMsg);
   }
 

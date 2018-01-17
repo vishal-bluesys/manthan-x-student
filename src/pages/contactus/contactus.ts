@@ -25,7 +25,7 @@ export class ContactusPage {
   
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ContactusPage');
+   // console.log('ionViewDidLoad ContactusPage');
   }
 
   callNow(phonenum:any){

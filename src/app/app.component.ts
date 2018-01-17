@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
+import { END_POINTS } from '../config'; 
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -30,8 +30,8 @@ export class MyApp {
    imagefile : string ; //="http://bluesys.in/dev/mschoolbackend/public/images"; //"assets/img/default_user.png";
    user_name : string;
    designation : string;
-
-  rootPage: any ;
+   coverpic :string;
+   rootPage: any ;
 
   pages: Array<{title: string, component: any,icon:any}>;
 
@@ -68,7 +68,7 @@ export class MyApp {
       this.splashScreen.hide();
       
       this.storage.get('loggedIn').then((val) => {
-        console.log('logged In is', val);
+        //console.log('logged In is', val);
          if(val){
 
          
@@ -89,7 +89,7 @@ export class MyApp {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    console.log(page);
+    //console.log(page);
     this.nav.setRoot(page.component);
   }
 
@@ -108,14 +108,15 @@ export class MyApp {
   updateProfile(){
 
          this.storage.get('loggedIn').then((val) => {
-        console.log('logged In is', val);
+        //console.log('logged In is', val);
          if(val){
 
          
 
           this.storage.get('student').then((user) => {
                  let user_data = JSON.parse(user);
-                 this.imagefile = "http://bluesys.in/dev/mschoolbackend/public/images/"+user_data.profileimage;
+                 this.imagefile =(user_data.profileimage=='')? 'assets/img/default_user.png' : END_POINTS.imageUrl+"/"+user_data.profileimage;
+                 this.coverpic =(user_data.coverimage=='')? 'assets/img/default_cover.jpg' : END_POINTS.imageUrl+"/"+user_data.coverimage;
                  this.user_name = user_data.first_name+" "+user_data.last_name;
                  this.designation = user_data.designation; 
                  
@@ -130,9 +131,12 @@ export class MyApp {
 
   logout(){
 
-      this.storage.clear();
+ 
+
+
+             this.storage.clear();
   
-     this.nav.setRoot(LoginPage);
+             this.nav.setRoot(LoginPage);
 
   }
 

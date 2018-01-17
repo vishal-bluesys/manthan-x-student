@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { Camera  } from '@ionic-native/camera';
-import { Facebook } from '@ionic-native/facebook';
 import { FileTransfer } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
 import { HttpModule } from '@angular/http';
@@ -13,6 +12,7 @@ import { EmailComposer } from '@ionic-native/email-composer';
 import { Network } from '@ionic-native/network';
 import { CacheModule } from "ionic-cache";
 import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
+import { AppRate } from '@ionic-native/app-rate';
 
 import { MyApp } from './app.component';
 import { WelcomePage } from '../pages/welcome/welcome';
@@ -26,6 +26,7 @@ import { FriendsprofilePage } from '../pages/friendsprofile/friendsprofile';
 import { ChangepasswordPage } from '../pages/changepassword/changepassword';
 
 import { HomePage } from '../pages/home/home';
+import { NotificationsPage } from '../pages/notifications/notifications';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { ForgotpasswordPage } from '../pages/forgotpassword/forgotpassword';
@@ -38,6 +39,8 @@ import { CoursedetailsPage } from '../pages/coursedetails/coursedetails';
 import { JobdetailsPage } from '../pages/jobdetails/jobdetails';
 import { YoutubePage } from '../pages/youtube/youtube';
 import { PlaylistPage } from '../pages/playlist/playlist';
+import { PortfolioPage } from '../pages/portfolio/portfolio';
+import { TimelinePage } from '../pages/timeline/timeline';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { WelcomeComponent } from '../components/welcome/welcome';
@@ -45,6 +48,7 @@ import { RestProvider } from '../providers/rest/rest';
 import { FCM } from '@ionic-native/fcm';
 import { Device } from '@ionic-native/device';
 import { YoutubeProvider } from '../providers/youtube/youtube';
+import { ParallaxDirective } from '../directives/parallax/parallax';
 
 @NgModule({
   declarations: [
@@ -69,9 +73,13 @@ import { YoutubeProvider } from '../providers/youtube/youtube';
     FriendsprofilePage,
     YoutubePage,
     PlaylistPage,
+    PortfolioPage,
+    TimelinePage,
     ChangepasswordPage,
     ForgotpasswordPage,
-    WelcomeComponent ],
+    WelcomeComponent,
+    NotificationsPage,
+    ParallaxDirective ],
 
   imports: [
     BrowserModule,
@@ -109,15 +117,17 @@ import { YoutubeProvider } from '../providers/youtube/youtube';
     PostdetailsPage,
     YoutubePage,
     PlaylistPage,
+    PortfolioPage,
+    TimelinePage,
     ChangepasswordPage,
     ForgotpasswordPage,
+    NotificationsPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Camera,
-    Facebook,
     FileTransfer,
     File,
     RestProvider,
@@ -128,6 +138,8 @@ import { YoutubeProvider } from '../providers/youtube/youtube';
     Network,
     YoutubeProvider,
     YoutubeVideoPlayer,
+    AppRate,
+
 
   ]
 })

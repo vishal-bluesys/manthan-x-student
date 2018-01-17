@@ -29,8 +29,8 @@
 
  #menu .profile-image-container{
 
-   height : 200px;
-   padding : 10px;
+   height : 150px;
+   padding : 0px;
 
  }
  
@@ -41,8 +41,14 @@
    border-radius: 50%;
    float:left;
 
-  
+  margin-top: 36px;
 
+ }
+
+ #menu .toolbar-content{
+
+  background: rgba(0, 0, 0, 0.71);
+    height: 150px;
  }
 
   .profile-pic-image{
@@ -59,16 +65,18 @@
 
 .user-details{
 	    float: left;
-    margin-top: 10%;
+     
   
     padding: 10px;
+        margin-top: 60px;
 
 } 
 .user-name{
    
    font-weight:bolder;
    font-size:15px;
-   color:#4c474b;;	
+   color:#fff;	
+   text-transform: capitalize;
    
 
 }
@@ -76,13 +84,14 @@
 .user-designation{
 	font-weigth:normal;
    font-size:10px;
-   color:rgb(125, 94, 94);;	
+   color:#fbc0c0;	
+    text-transform: capitalize;
 
 }
 
 #menu .toolbar-background {
- background: url('../assets/img/namedLogo1.png') no-repeat center 100%;
-    background-color: rgba(0, 0, 0, 0.65);
+ //background: url('../assets/img/namedLogo1.png') no-repeat center 100%;
+   // background-color: rgba(0, 0, 0, 0.65);
     background-size: 100%;
     -webkit-filter: blur(4px);
     -moz-filter: blur(4px);
@@ -90,6 +99,29 @@
     -o-filter: blur(4px);
     background-position: 4px 42px;
     filter: blur(4px)
+}
+
+#menu .toolbar-background img .coverpic{
+ //background: url('../assets/img/namedLogo1.png') no-repeat center 100%;
+   // background-color: rgba(0, 0, 0, 0.65);
+    background-size: 100%;
+    -webkit-filter: blur(4px);
+    -moz-filter: blur(4px);
+    -ms-filter: blur(4px);
+    -o-filter: blur(4px);
+    background-position: 4px 42px;
+    filter: blur(4px);
+    z-index: -10px;
+}
+
+.coverpic{
+
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    background: cover;
+    width: 100%;
+    padding: none;
 }
 
 #menu .menu-item{

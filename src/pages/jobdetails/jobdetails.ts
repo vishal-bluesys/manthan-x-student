@@ -31,8 +31,8 @@ export class JobdetailsPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad JobdetailsPage');
-    console.log(this.navParams.get('jobtitle'));
+   // console.log('ionViewDidLoad JobdetailsPage');
+    //console.log(this.navParams.get('jobtitle'));
     this.id = this.navParams.get('id');
     this.jobtitle = this.navParams.get('jobtitle');
     this.designation = this.navParams.get('designation');

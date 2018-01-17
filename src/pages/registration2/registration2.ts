@@ -4,7 +4,7 @@ import { ActionSheetController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
-
+import { END_POINTS } from '../../config'; 
 
 import { RestProvider } from '../../providers/rest/rest';
 
@@ -50,7 +50,7 @@ export class Registration2Page {
 
  
   ionViewDidLoad() {
-    console.log('ionViewDidLoad Registration2Page');
+    //console.log('ionViewDidLoad Registration2Page');
  
     
    
@@ -116,7 +116,7 @@ export class Registration2Page {
  fileTransfer: FileTransferObject = this.transfer.create();
 
   upload(filename:any) {
-    let url : string = "http://bluesys.in/dev/mschoolbackend/app/Http/Controllers/upload.php" ;
+    let url : string =   END_POINTS.uploadUrl ;//"http://bluesys.in/dev/mschoolbackend/app/Http/Controllers/upload.php" ;
 
   let options: FileUploadOptions = {
      fileKey: 'file',

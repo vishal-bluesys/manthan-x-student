@@ -147,7 +147,7 @@ export class PostedjobsPage {
 
          },
         error => {
-                alert('error');
+               alert('Something went wrong');
              
         },
         () =>{  infiniteScroll.complete();}
@@ -201,7 +201,7 @@ export class PostedjobsPage {
         {
           text: 'Cancel',
           handler: () => {
-            console.log('Disagree clicked');
+           // console.log('Disagree clicked');
           }
         },
         {

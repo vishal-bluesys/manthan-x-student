@@ -1,15 +1,11 @@
-page-home {
-.grid{
+page-timeline {
+  
+ .grid{
 	
    color:#fff;
 }
    
-.item-md h2,.item-ios h2 {
-    font-size: 1.6rem;
-    font-weight: normal;
-    margin: 2px 0px;
-    text-transform: capitalize;
-}
+
 
  .post-description{
 	    font-family: "Roboto", "Helvetica Neue", sans-serif;
@@ -18,4 +14,6 @@ page-home {
     max-height: 200px;
     overflow: hidden;
 }
+
+
 }
